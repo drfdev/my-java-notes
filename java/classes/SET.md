@@ -34,4 +34,4 @@
 
 ---
 
-**java.util.EmptySet** (in Collections, private)
+**java.util.EmptySet** (in Collections)
