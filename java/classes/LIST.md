@@ -44,23 +44,25 @@
 
 Поиск по индексу:
 * indexOf: 
-  #### TODO
+  ищет элемент по equals с начала до конца списка
+  Если передать ll - будет искать первый элемент равный null
 * indexOfRange:
-  #### TODO
+  Аналогично indexOf, только в заданном диапазоне индексов
 * lastIndexOf:
-  #### TODO
+  Поиск аналогичный indexOf, только не с начала, а с конца
 * lastIndexOfRange:
-  #### TODO
+  Поиск аналогичный indexOfRange, но с конца списка
 
 Сравнение:
 * equals:
-  #### TODO
+  Сравнивает поэлементно через equals, может кинуть ConcurrentModificationException
 * hashCode:
-  #### TODO
+  hashCode = 31 * hashCode + element[i].hashCode
+  По всем элементам
 
 Другое:
 * contains:
-  #### TODO
+  return indexOf(o) >= 0;
 
 ---
 
