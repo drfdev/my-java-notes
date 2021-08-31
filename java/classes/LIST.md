@@ -92,6 +92,13 @@
 
 **java.util.SingletonList** (in Collections)
 
+Список с одним элементом. Обертка над одним элементом.
+size() возвращает всегда 1
+contains() возвращает true если элемент equals входящий параметр
+get() если не 0 - выкидывает IndexOutOfBoundsException, если 0 - возвращает элемент
+removeIf(), replaceAll() кидают UnsupportedOperationException
+hashCode() стандартный `return 31 + Objects.hashCode(element);`
+
 ---
 
 **java.util.EmptyList** (in Collections)
