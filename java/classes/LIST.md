@@ -95,3 +95,13 @@
 ---
 
 **java.util.EmptyList** (in Collections)
+
+Пустой массив. Константа в Collections, которая возвращается при вызове Collections.emptyList()
+size() возвращает всегда 0
+isEmpty() всегда возвращает true
+contains() всегда возвращает false
+containsAll() возвращает true, если входящий массив пустой
+equals() возвращает true, если список пустой
+hashCode() всегда возвращает 1
+
+Переопределен readResolve() чтобы нельзя было создать два таких массива
