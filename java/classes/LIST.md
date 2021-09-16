@@ -123,10 +123,38 @@ removeLastOccurrence(Object):
   Аналог remove(Object), но поиск объекта идет с конца списка. Поиск по equals() или на null
 
 Поиск по индексу:
+get(int):
+  Ищет ноду по индексу, затем возвращает элемент лежащий в ней
+getFirst():
+  Возвращает элемент лежащий в первой ноде
+getFirst():
+  Возвращает элемент лежащий в последней ноде
+contains(Object):
+  return indexOf(o) >= 0;
+element():
+  Возвращает результат getFirst()
+indexOf():
+  Ищет элемент по equals (или по null) и возвращает индекс этого элемента
 
 Сравнение:
+equals:
+  Создает два итератора, затем бежит по ним и поэлементно сравнивает через equals
+hashCode:
+  hashCode = 31 * hashCode + element[i].hashCode
+  По всем элементам  
 
 Другое:
+offer(E):
+offerFirst(E):
+offerLast(E):
+peek():
+peekFirst():
+peekLast():
+poll():
+pollFirst():
+pollLast():
+push(E):
+pop():
 
 
 
