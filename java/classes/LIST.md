@@ -106,6 +106,29 @@ addFirst(E):
 addLast(E):
 * вызывает linkLast()
 
+Удаление:
+remove():
+  Вызов removeFirst()
+remove(int):
+  Ищет ноду по индексу, затем выкидывает элемент из списка через перевешивание ссылок
+remove(Object):
+  Удаляет (разлинковывает) объект первый по equals(), если передан null - разлинковывает первый null
+removeFirst():
+  Берет первый элемент и удаляет (разлнковывает) его
+removeFirstOccurrence(Object):
+  Вызов remove(Object)
+removeLast():
+  Берет последний элемент и удаляет (разлинковывает) его
+removeLastOccurrence(Object):
+  Аналог remove(Object), но поиск объекта идет с конца списка. Поиск по equals() или на null
+
+Поиск по индексу:
+
+Сравнение:
+
+Другое:
+
+
 
 ---
 
