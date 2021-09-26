@@ -185,6 +185,16 @@ pop():
 
 **java.util.CheckedList**
 
+Типобезопасная обертка над листом.
+Есть две реализации: CheckedList и CheckedRandomAccessList. Выбираются по условию: `list instanceof RandomAccess`
+
+Все методы для модификации списка вызывают метод typeCheck(Object)
+Если не выполнено условие `o != null && !type.isInstance(o)` то выкидывает ошибка ClassCastException
+
+Остальные методы представляют делегирование вызовов тех же методов списку
+
+
+
 ---
 
 **java.util.CopiesList** (in Collections)
