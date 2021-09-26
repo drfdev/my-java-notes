@@ -177,6 +177,10 @@ pop():
 
 **java.util.UnmodifiableList** (in Collections)
 
+Обертка над листом
+Все методы модификации выкидывают UnsupportedOperationException, остальные просто дилегируют вызов делегату
+
+
 ---
 
 **java.util.concurrent.CopyOnWriteArrayList**
