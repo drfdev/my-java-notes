@@ -189,6 +189,40 @@ pop():
 
 **java.util.CopiesList** (in Collections)
 
+Неизменяемый список состоящий из n одинаковых элементов
+Внутри содержит элемент E и длину списка n
+
+Вызывается из метода:
+```java
+public static <T> List<T> nCopies(int n, T o)
+```
+
+Все методы редактирования кидают UnsupportedOperationException
+Метод get() - возвращает элемент E
+Метод size() - всегда возвращает n
+
+contains():
+Если n != 0, тогда просто сравнивает входящий элемент и E
+
+indexOf():
+Возвращает contains(o) ? 0 : -1
+
+lastIndexOf():
+Возвращает contains(o) ? n - 1 : -1
+
+subList():
+Возвращает CopiesList меньшего размера
+
+hashCode():
+hashCode of n repeating elements is 31^n + elementHash * Sum(31^k, k = 0..n-1)
+this implementation completes in O(log(n)) steps taking advantage of
+31^(2*n) = (31^n)^2 and Sum(31^k, k = 0..(2*n-1)) = Sum(31^k, k = 0..n-1) * (31^n + 1)
+
+equals():
+Поэлементное сравнение с E
+
+
+
 ---
 
 **java.util.SingletonList** (in Collections)
