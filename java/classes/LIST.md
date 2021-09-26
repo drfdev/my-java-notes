@@ -145,16 +145,27 @@ hashCode:
 
 Другое:
 offer(E):
+  Вызов add(E)
 offerFirst(E):
+  Вызов addFirst(E)
 offerLast(E):
+  Вызов addLast(E)
 peek():
+  Возвращает первое значение
 peekFirst():
+  Возвращает первое значение, код аналогичен peek(), но почему-то в java 16 закопирован
 peekLast():
+  Возвращает последнее значение
 poll():
+  unlinkFirst()
 pollFirst():
+  unlinkFirst()
 pollLast():
+  unlinkLast()
 push(E):
+  addFirst()
 pop():
+  return removeFirst()
 
 
 
