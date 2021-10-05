@@ -172,6 +172,60 @@ pop():
 ---
 
 **java.util.Vector**
+Обертка над массивом. Все методы синхонизованы
+Содержит:
+Object[] elementData
+  массив элементов
+int elementCount
+  размер массива
+int capacityIncrement
+  количество на которое массив будет прирастать если размер массива достигает максимума.
+  Если равен нулю, то увеличивает в 2 раза
+
+Конструкторы:
+Vector(int initialCapacity, int capacityIncrement)
+  задает начальные значения
+Vector(int initialCapacity)
+  задает initialCapacity и capacityIncrement = 0
+Vector()
+  задает значения по умолчанию: initialCapacity = 10 и capacityIncrement = 0
+Vector(Collection<? extends E> c)
+  копирует массив
+
+Добавление:
+add(E e)
+  **synchronized**
+  Добавляет элемент, если элемент не вмещается массив увеличивается в размере
+add(int index, E element)
+  вызывает insertElementAt(element, index)
+insertElementAt(E obj, int index)
+  **synchronized**
+  добавляет объект в позицию index, если размера не хватает массив увеличивается в размере
+addElement(E obj)
+  **synchronized**
+  добавляет элемент в конец списка, если размера не хватает массив увеличивается в размере
+addAll(Collection<? extends E> c)
+  **synchronized**
+  добавляет список элементов в конец, если размера не хватает массив увеличивается в размере
+addAll(int index, Collection<? extends E> c)
+  **synchronized**
+  добавляет список в позицию index, если размера не хватает массив увеличивается в размере
+  
+Удаление:
+bulkRemove(Predicate<? super E> filter)
+remove(int index)
+remove(Object o)
+removeElement(Object obj)
+removeElementAt(int index)
+removeAll(Collection<?> c)
+removeIf(Predicate<? super E> filter)
+removeRange(int fromIndex, int toIndex)
+
+Поиск по индексу:
+
+Другое:
+
+
 
 ---
 
