@@ -213,13 +213,26 @@ addAll(int index, Collection<? extends E> c)
   
 Удаление:
 bulkRemove(Predicate<? super E> filter)
+  **synchronized**
+  Удаляет по условию, может кинуть ConcurrentModificationException
 remove(int index)
+  **synchronized**
+  Копирует массив и зануляет последний
 remove(Object o)
+  вызывает removeElement()
 removeElement(Object obj)
+  **synchronized**
+  Ищет индекс через indexOf(), затем вызывает removeElementAt() с индексом
 removeElementAt(int index)
+  **synchronized**
+  Копирует массив и зануляет последний
 removeAll(Collection<?> c)
+  Вызывает bulkRemove(e -> c.contains(e))
 removeIf(Predicate<? super E> filter)
+  Вызывает bulkRemove(filter)
 removeRange(int fromIndex, int toIndex)
+  **synchronized**
+  копирует массив на указанный рендж и зануляет лишнее в конце
 
 Поиск по индексу:
 
