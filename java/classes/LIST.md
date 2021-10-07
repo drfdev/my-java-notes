@@ -80,91 +80,91 @@
 
 Добавление:
 **Внутренние методы**
-linkFirst():
-* создает новую ноду и перевешивает ссылки: новая нода становится первой 
-linkLast():
-* создает новую ноду и перевешивает ссылки: новая нода становится последней
-unlinkFirst(Node):
-* перевешивает ссылки удаляю первую ноду
-unlinkLast(Node):
-* перевешивает ссылки удаляя последнюю ноду
-unlink(Node):
-* перевешивает ссылки, выкидывая переданную ноду из списка
-linkBefore(E, Node):
-* создает новый узел с элементом E и вставляет его перед Node
+* linkFirst():
+  создает новую ноду и перевешивает ссылки: новая нода становится первой 
+* linkLast():
+  создает новую ноду и перевешивает ссылки: новая нода становится последней
+* unlinkFirst(Node):
+  перевешивает ссылки удаляю первую ноду
+* unlinkLast(Node):
+  перевешивает ссылки удаляя последнюю ноду
+* unlink(Node):
+  перевешивает ссылки, выкидывая переданную ноду из списка
+* linkBefore(E, Node):
+  создает новый узел с элементом E и вставляет его перед Node
 
 **Доступные**
-add(E):
-* вызывает linkLast
-add(int, E):
-* Если индекс последний вызывает linkLast, для остальных linkBefore 
-addAll():
-* Бежит по коллекции и перевешивает ноды, добавляя новые
+* add(E):
+  вызывает linkLast
+* add(int, E):
+  Если индекс последний вызывает linkLast, для остальных linkBefore 
+* addAll():
+  Бежит по коллекции и перевешивает ноды, добавляя новые
   Есть два варианта: (1) добавление в конец и (2) добавление по индексу
-addFirst(E):
-* вызывает linkFirst()
-addLast(E):
-* вызывает linkLast()
+* addFirst(E):
+  вызывает linkFirst()
+* addLast(E):
+  вызывает linkLast()
 
 Удаление:
-remove():
+* remove():
   Вызов removeFirst()
-remove(int):
+* remove(int):
   Ищет ноду по индексу, затем выкидывает элемент из списка через перевешивание ссылок
-remove(Object):
+* remove(Object):
   Удаляет (разлинковывает) объект первый по equals(), если передан null - разлинковывает первый null
-removeFirst():
+* removeFirst():
   Берет первый элемент и удаляет (разлнковывает) его
-removeFirstOccurrence(Object):
+* removeFirstOccurrence(Object):
   Вызов remove(Object)
-removeLast():
+** removeLast():
   Берет последний элемент и удаляет (разлинковывает) его
-removeLastOccurrence(Object):
+** removeLastOccurrence(Object):
   Аналог remove(Object), но поиск объекта идет с конца списка. Поиск по equals() или на null
 
 Поиск по индексу:
-get(int):
+* get(int):
   Ищет ноду по индексу, затем возвращает элемент лежащий в ней
-getFirst():
+* getFirst():
   Возвращает элемент лежащий в первой ноде
-getFirst():
+* getFirst():
   Возвращает элемент лежащий в последней ноде
-contains(Object):
+* contains(Object):
   return indexOf(o) >= 0;
-element():
+* element():
   Возвращает результат getFirst()
-indexOf():
+* indexOf():
   Ищет элемент по equals (или по null) и возвращает индекс этого элемента
 
 Сравнение:
-equals:
+* equals:
   Создает два итератора, затем бежит по ним и поэлементно сравнивает через equals
-hashCode:
+* hashCode:
   hashCode = 31 * hashCode + element[i].hashCode
   По всем элементам  
 
 Другое:
-offer(E):
+* offer(E):
   Вызов add(E)
-offerFirst(E):
+* offerFirst(E):
   Вызов addFirst(E)
-offerLast(E):
+* offerLast(E):
   Вызов addLast(E)
-peek():
+* peek():
   Возвращает первое значение
-peekFirst():
+* peekFirst():
   Возвращает первое значение, код аналогичен peek(), но почему-то в java 16 закопирован
-peekLast():
+* peekLast():
   Возвращает последнее значение
-poll():
+* poll():
   unlinkFirst()
-pollFirst():
+* pollFirst():
   unlinkFirst()
-pollLast():
+* pollLast():
   unlinkLast()
-push(E):
+* push(E):
   addFirst()
-pop():
+* pop():
   return removeFirst()
 
 
@@ -174,63 +174,63 @@ pop():
 **java.util.Vector**
 Обертка над массивом. Все методы синхонизованы
 Содержит:
-Object[] elementData
+* Object[] elementData:
   массив элементов
-int elementCount
+* int elementCount:
   размер массива
-int capacityIncrement
+* int capacityIncrement:
   количество на которое массив будет прирастать если размер массива достигает максимума.
   Если равен нулю, то увеличивает в 2 раза
 
 Конструкторы:
-Vector(int initialCapacity, int capacityIncrement)
+* Vector(int initialCapacity, int capacityIncrement):
   задает начальные значения
-Vector(int initialCapacity)
+* Vector(int initialCapacity):
   задает initialCapacity и capacityIncrement = 0
-Vector()
+* Vector():
   задает значения по умолчанию: initialCapacity = 10 и capacityIncrement = 0
-Vector(Collection<? extends E> c)
+* Vector(Collection<? extends E> c):
   копирует массив
 
 Добавление:
-add(E e)
+* add(E e)
   **synchronized**
   Добавляет элемент, если элемент не вмещается массив увеличивается в размере
-add(int index, E element)
+* add(int index, E element):
   вызывает insertElementAt(element, index)
-insertElementAt(E obj, int index)
+* insertElementAt(E obj, int index):
   **synchronized**
   добавляет объект в позицию index, если размера не хватает массив увеличивается в размере
-addElement(E obj)
+* addElement(E obj):
   **synchronized**
   добавляет элемент в конец списка, если размера не хватает массив увеличивается в размере
-addAll(Collection<? extends E> c)
+* addAll(Collection<? extends E> c):
   **synchronized**
   добавляет список элементов в конец, если размера не хватает массив увеличивается в размере
-addAll(int index, Collection<? extends E> c)
+* addAll(int index, Collection<? extends E> c):
   **synchronized**
   добавляет список в позицию index, если размера не хватает массив увеличивается в размере
-  
+
 Удаление:
-bulkRemove(Predicate<? super E> filter)
+* bulkRemove(Predicate<? super E> filter):
   **synchronized**
   Удаляет по условию, может кинуть ConcurrentModificationException
-remove(int index)
+* remove(int index):
   **synchronized**
   Копирует массив и зануляет последний
-remove(Object o)
+* remove(Object o):
   вызывает removeElement()
-removeElement(Object obj)
+* removeElement(Object obj):
   **synchronized**
   Ищет индекс через indexOf(), затем вызывает removeElementAt() с индексом
-removeElementAt(int index)
+* removeElementAt(int index):
   **synchronized**
   Копирует массив и зануляет последний
-removeAll(Collection<?> c)
+* removeAll(Collection<?> c):
   Вызывает bulkRemove(e -> c.contains(e))
-removeIf(Predicate<? super E> filter)
+* removeIf(Predicate<? super E> filter):
   Вызывает bulkRemove(filter)
-removeRange(int fromIndex, int toIndex)
+* removeRange(int fromIndex, int toIndex):
   **synchronized**
   копирует массив на указанный рендж и зануляет лишнее в конце
 
@@ -282,25 +282,27 @@ public static <T> List<T> nCopies(int n, T o)
 Метод get() - возвращает элемент E
 Метод size() - всегда возвращает n
 
-contains():
-Если n != 0, тогда просто сравнивает входящий элемент и E
+* contains():
+  Если n != 0, тогда просто сравнивает входящий элемент и E
 
-indexOf():
-Возвращает contains(o) ? 0 : -1
+* indexOf():
+  Возвращает contains(o) ? 0 : -1
 
-lastIndexOf():
-Возвращает contains(o) ? n - 1 : -1
+* lastIndexOf():
+  Возвращает contains(o) ? n - 1 : -1
 
-subList():
-Возвращает CopiesList меньшего размера
+* subList():
+  Возвращает CopiesList меньшего размера
 
-hashCode():
-hashCode of n repeating elements is 31^n + elementHash * Sum(31^k, k = 0..n-1)
-this implementation completes in O(log(n)) steps taking advantage of
-31^(2*n) = (31^n)^2 and Sum(31^k, k = 0..(2*n-1)) = Sum(31^k, k = 0..n-1) * (31^n + 1)
+* hashCode():
+```
+  hashCode of n repeating elements is 31^n + elementHash * Sum(31^k, k = 0..n-1)
+  this implementation completes in O(log(n)) steps taking advantage of
+  31^(2*n) = (31^n)^2 and Sum(31^k, k = 0..(2*n-1)) = Sum(31^k, k = 0..n-1) * (31^n + 1)`
+```
 
-equals():
-Поэлементное сравнение с E
+* equals():
+  Поэлементное сравнение с E
 
 
 
@@ -309,22 +311,33 @@ equals():
 **java.util.SingletonList** (in Collections)
 
 Список с одним элементом. Обертка над одним элементом.
-size() возвращает всегда 1
-contains() возвращает true если элемент equals входящий параметр
-get() если не 0 - выкидывает IndexOutOfBoundsException, если 0 - возвращает элемент
-removeIf(), replaceAll() кидают UnsupportedOperationException
-hashCode() стандартный `return 31 + Objects.hashCode(element);`
+* size():
+  возвращает всегда 1
+* contains():
+  возвращает true если элемент equals входящий параметр
+* get():
+  если не 0 - выкидывает IndexOutOfBoundsException, если 0 - возвращает элемент
+* removeIf(), replaceAll():
+  кидают UnsupportedOperationException
+* hashCode():
+  стандартный `return 31 + Objects.hashCode(element);`
 
 ---
 
 **java.util.EmptyList** (in Collections)
 
 Пустой массив. Константа в Collections, которая возвращается при вызове Collections.emptyList()
-size() возвращает всегда 0
-isEmpty() всегда возвращает true
-contains() всегда возвращает false
-containsAll() возвращает true, если входящий массив пустой
-equals() возвращает true, если список пустой
-hashCode() всегда возвращает 1
+* size():
+  возвращает всегда 0
+* isEmpty():
+  всегда возвращает true
+* contains():
+  всегда возвращает false
+* containsAll():
+  возвращает true, если входящий массив пустой
+* equals():
+  возвращает true, если список пустой
+* hashCode():
+  всегда возвращает 1
 
 Переопределен readResolve() чтобы нельзя было создать два таких массива
