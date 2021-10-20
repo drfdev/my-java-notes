@@ -256,6 +256,56 @@
 ---
 
 **java.util.concurrent.CopyOnWriteArrayList**
+Потокобезопасный вариант ArrayList
+Все мутабельные операции делают копию внутреннего массива
+Итератор возвращает снепшот массива и не поддерживает метод удаления (а так же добавления или изменения)
+Happen-before: события предшествующие вставке элемента стоят в соотношении happen-before для событий удаления или доступа к этому элементу из другого потока
+
+Структура:
+* volatile Object[] array:
+  массив с данными
+* Object lock = new Object()
+  лок для всех операций мутаторов
+  
+Конструкторы:
+* CopyOnWriteArrayList()
+* CopyOnWriteArrayList(Collection)
+* CopyOnWriteArrayList(E[])
+
+Добавление:
+* add(E)
+* add(int, E)
+* addAll(Collection)
+* addAll(int, Collection)
+* addAllAbsent(Collection)
+* addIfAbsent(E)
+* addIfAbsent(E, Object[])
+* set(int, E)
+
+Удаление:
+* remove(int)
+* remove(Object)
+* removeAll(Collection)
+* removeIf(Predicate)
+* removeRange(int, int)
+* remove(Object, Object[], int)
+
+Доступ по индексу:
+* get(int)
+* indexOf(E, int)
+* indexOf(Object)
+* lastIndexOf(Object)
+* lastIndexOf(E, int)
+
+Итератор:
+* iterator()
+* listIterator()
+* listIterator(int)
+
+Другое:
+* clone()
+* equals()
+* hashCode()
 
 ---
 
