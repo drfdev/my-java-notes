@@ -323,21 +323,41 @@ Happen-before: события предшествующие вставке эле
   
 
 Доступ по индексу:
-* get(int)
-* indexOf(E, int)
-* indexOf(Object)
-* lastIndexOf(Object)
-* lastIndexOf(E, int)
+* get(int):
+  Возвращает элемент по индексу
+* indexOf(E, int):
+  Возвращает индекс первого элемента (начиная с заданного индекса)
+  Сравнение идет по equals
+* indexOf(Object):
+  Возвращает идекс элемента от начала списка
+  Сравнение по equals
+* lastIndexOf(Object):
+  Поиск элемента с конца массива
+  Сравнение по equals
+* lastIndexOf(E, int):
+  Поиск элемента с конца, начиная с заданного индекса
+  Сравнение по equals
 
 Итератор:
-* iterator()
-* listIterator()
-* listIterator(int)
+* iterator():
+  Возвращает объект COWIterator
+  Не требует синхронизации, бежит по текущему снепшоту массива
+  Не поддерживает операции add/remove/set
+* listIterator():
+  Аналогично возвращает COWIterator
+* listIterator(int):
+  Возвращает COWIterator, с заданным стартовым индексом
 
 Другое:
-* clone()
-* equals()
-* hashCode()
+* clone():
+  Делает копию, с копией массива
+* equals():
+  Сравнивает поэлементно, через Objects.equals
+  Пробегает коллекцию через итератор (т.е. через текущий снепшот)
+* hashCode():
+  Для текущего снепшота стандартная штука:
+  `hashCode = 31 * hashCode + (x == null ? 0 : x.hashCode());`
+  
 
 ---
 
