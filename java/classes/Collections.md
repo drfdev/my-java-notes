@@ -1,0 +1,1 @@
+### Методы java.lang.Collections
