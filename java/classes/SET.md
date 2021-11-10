@@ -36,6 +36,19 @@
 
 **java.util.NavigableSet** (interface)
 
+SortedSet расширенный навигационными методами
+* E lower(E e):
+* E floor(E e):
+* E ceiling(E e):
+* E higher(E e):
+* E pollFirst():
+* E pollLast():
+* NavigableSet<E> descendingSet():
+* Iterator<E> descendingIterator():
+* NavigableSet<E> subSet(E, boolean, E, boolean):
+* NavigableSet<E> headSet(E, boolean):
+* NavigableSet<E> tailSet(E, boolean):
+
 ---
 
 **java.util.UnmodifiableSet** (in Collections)
