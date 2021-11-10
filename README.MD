@@ -2,6 +2,7 @@
 
 Оглавление:
 - java/classes - описание классов
+- java/streams - про стримы
 - algorithms - алгоритмы
 
 ---
