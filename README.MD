@@ -4,6 +4,8 @@
 - java/classes - описание классов
 - java/streams - про стримы
 - algorithms - алгоритмы
+- bytecode - заметки по байткоду
+- spring - обзор спринга
 
 ---
 
