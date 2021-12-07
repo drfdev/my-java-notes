@@ -91,6 +91,20 @@ SortedSet расширенный навигационными методами
 
 **java.util.SynchronizedSet** (in Collections)
 
+Результат вызова `Collections.synchronizedSet(Set<T>)` или `Collections.synchronizedSet(Set<T>, Object)`
+Оборачивает существующий Set, все методы синхронизуются по mutex-у
+Mutex - может быть this или объект переданный в конструктор
+Декорирует Set, примеры вызова:
+```java
+public boolean add(E e) {
+    synchronized (mutex) {return c.add(e);}
+}
+public boolean isEmpty() {
+    synchronized (mutex) {return c.isEmpty();}
+}
+```
+
+
 ---
 
 **java.util.concurrent.ConcurrentSkipListSet**
