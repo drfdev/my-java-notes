@@ -83,6 +83,10 @@ SortedSet расширенный навигационными методами
 
 **java.util.UnmodifiableSet** (in Collections)
 
+Результат вызова `Collections.unmodifiableSet(Set<T>)`
+Оборачивает существующий Set
+Методы меняющие Set кидают UnsupportedOperationException, метод remove() итератора так же кидает UnsupportedOperationException
+
 ---
 
 **java.util.SynchronizedSet** (in Collections)
