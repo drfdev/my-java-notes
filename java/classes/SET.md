@@ -4,6 +4,29 @@
 
 **java.util.HashSet**
 
+Реализация hash table. Обертка над HashMap.
+Класс разрешает null-значение, не синхронизован.
+
+Поля:
+`HashMap<E,Object> map` - реализация основной логики хеш таблицы
+`Object PRESENT = new Object();` - dummy-объект для работы с мапой
+
+Доступные методы:
+* iterator():
+  Возвращает результат `map.keySet().iterator()`
+* size():
+  Возвращает результат `map.size()`
+* isEmpty():
+  Возвращает результат `map.isEmpty()`
+* contains(Object o):
+  Возвращает результат `map.containsKey(o)`
+* add(E e):
+  Возвращает результат `map.put(e, PRESENT)==null`
+* remove(Object o):
+  Возвращает результат `map.remove(o)==PRESENT`
+* clear():
+  Вызывает результат `map.clear()`
+
 ---
 
 **java.util.LinkedHashSet**
