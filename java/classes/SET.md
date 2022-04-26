@@ -31,6 +31,12 @@
 
 **java.util.LinkedHashSet**
 
+Реализация HashSet через LinkedHashMap
+Внутренний состав аналогичен `java.util.HashSet`, где вместо `HashMap<E,Object> map` используется `LinkedHashMap<E,Object> map`
+
+Переопределен метод 
+* public Spliterator<E> spliterator(): возвращает сплитератор с характеристиками DISTINCT и ORDERED (все элементы различны и отсортированы)
+
 ---
 
 **java.util.TreeSet**
