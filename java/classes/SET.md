@@ -41,6 +41,92 @@
 
 **java.util.TreeSet**
 
+Множество базируется на `TreeMap`, наследует интерфейс `NavigableSet`
+Сортировка элементов идет или в _натуральном порядке_, или через компаратор заданный в конструкторе
+Не синхронизована
+
+Поля:
+* NavigableMap<E,Object> m:
+  внутренняя мапа для работы (декорируемая)
+* Object PRESENT = new Object():
+  Dummy value to associate with an Object in the backing Map
+  используется как значение для мапы `m`
+
+Конструкторы:
+* TreeSet():
+  создает новое множество, в m кладется реализация `new TreeMap<>()`
+* TreeSet(Comparator):
+  реализация с заданным компаратором, в m кладется реализация `new TreeMap<>(comparator)`
+* TreeSet(Collection<? extends E>):
+  вызывает пустой конструктор, затем метод `addAll()`
+  в m кладется реализация `new TreeMap<>()`
+* TreeSet(SortedSet<E> s):
+  вызывается конструктор с компаратором (компаратор берется из множества), затем метод `addAll()`
+
+Методы:
+* Iterator<E> iterator():
+  возвращает `m.navigableKeySet().iterator()`, итератор пробегающий по множеству в прямом порядке
+* Iterator<E> descendingIterator():
+  возвращает `m.descendingKeySet().iterator()`, итератор пробегающий по множеству в обратном порядке
+* NavigableSet<E> descendingSet():
+  возвращает `new TreeSet<>(m.descendingMap())`
+  Создает новый объект!
+* size():
+  возвращает `m.size()`, просто количество элементов в мапе/множестве
+* isEmpty():
+  возвращает `m.isEmpty()`, пустая мапа/множестве или нет
+* contains(Object o):
+  возвращает `m.containsKey(o)`, если элемент в мапе/множестве или нет
+* add(E e):
+  добавляет элемент в множество, кладет в карту `m.put(e, PRESENT)` - ключ наш элемент, значение dummy-объект
+* remove(Object o):
+  удаляет элемент из множества/мапы
+* addAll(Collection<? extends E>):
+  кладет все значения коллекции в мапу/множество
+  есть оптимизация для `SortedSet` и пустой мапы
+* NavigableSet<E> subSet(E, boolean, E, boolean):
+  создает новый объект `TreeSet`, содержащий подмножество начинающееся с первого элемента, до последнего элемента
+  boolean переменные определяют, будет ли включаться начало и конец промежутка или нет
+  вызывает `new TreeSet<>(m.subMap(fromElement, fromInclusive, toElement,   toInclusive))`
+* NavigableSet<E> headSet(E, boolean):
+  создает новый объект `TreeSet`, содержит подмножество с головы до указанного элемента
+  вызывает `new TreeSet<>(m.headMap(toElement, inclusive));`
+* NavigableSet<E> tailSet(E, boolean):
+  создает новый объект `TreeSet`, содержит подмножество начинающееся с указанного элемент до конца множества
+  вызывает `new TreeSet<>(m.tailMap(fromElement, inclusive))`
+* SortedSet<E> subSet(E, E):
+  вызывает `subSet(fromElement, true, toElement, false)`
+* SortedSet<E> headSet(E):
+  вызывает `headSet(toElement, false)`
+* SortedSet<E> tailSet(E):
+  вызывает `tailSet(fromElement, true)`
+* Comparator<? super E> comparator():
+  возвращает компаратор используемый для сортировки в мапе/множестве
+  возвращает `m.comparator()`
+* E first():
+  возвращает первый элемент, вызывает `m.firstKey()`
+* E last():
+  возвращает последний элемент, вызывает `m.lastKey()`
+* E lower(E e):
+  возвращает наибольший элемент, строго меньше чем заданный элемент
+  вызывает `m.lowerKey(e)`
+* E floor(E e):
+  возвращает наибольший элемент, меньше или равный чем заданный элемент
+  вызывает `m.floorKey(e)`
+* E ceiling(E e):
+  возвращает наименьший элемент, больший или равный чем заданный элемент
+  вызывает `m.ceilingKey(e)`
+* E higher(E e):
+  возвращает наименьший элемент, строго больший чем заданный элемент
+  вызывает `m.higherKey(e)`
+* E pollFirst():
+  возвращает и удаляет первый элемент
+  вызывается `m.pollFirstEntry()`
+* E pollLast():
+  возвращает и удаляет последний элемент
+  вызывается `m.pollLastEntry()`
+
+
 ---
 
 **java.util.SortedSet** (interface)
