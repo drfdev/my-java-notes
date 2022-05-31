@@ -224,6 +224,29 @@ public boolean isEmpty() {
 
 **java.util.concurrent.ConcurrentSkipListSet**
 
+Конкурентная реализация NavigableSet, базируется на ConcurrentSkipListMap
+Предоставляет lon(n) время для операции contains, добавления,удаления и вариаций этих операций
+Метод size работает НЕ константное время
+Балковые операции  addAll, removeIf или forEach НЕ ГАРАНТИРУЮТ атомарность
+
+Конструкторы:
+* ConcurrentSkipListSet():
+  создает новый пустой ConcurrentSkipListMap
+* ConcurrentSkipListSet(Comparator):
+  создает новый пустой ConcurrentSkipListMap с заданным компаратором
+* ConcurrentSkipListSet(Collection):
+  создает новый ConcurrentSkipListMap и вызывает addAll()
+* ConcurrentSkipListSet(SortedSet):
+  создает новый ConcurrentSkipListMap, с компаратором из SortedSet, затем вызывает addAll
+* ConcurrentSkipListSet(ConcurrentNavigableMap):
+  просто `this.m = m`
+
+Хранит внутри себя ConcurrentNavigableMap<E,Object>
+Вместо Object всегда добавляет Boolean.TRUE
+
+Все методы, просто декорирование соответствующих методов из ConcurrentNavigableMap
+См. TreeSet, тут примерно то же самое
+
 ---
 
 **java.util.EmptySet** (in Collections)
