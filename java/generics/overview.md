@@ -202,3 +202,13 @@ method(new A_B_i_C());
 method(new A_C_i_B());
 method(new B_C_i_A());
 ```
+
+### ---
+
+Второй вариант комбинированного метода: `public static <T extends A_B & B> void method(T val)`
+
+Корректные варианты:
+```java
+method(new A_B());
+method(new A_B_i_C());
+```
