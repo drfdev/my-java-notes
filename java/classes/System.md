@@ -41,9 +41,21 @@ status - статус завершения
 или выполнение за конкретное время (после того как метод завершится)
 
 ###### Map<String,String> getenv()
+Возвращает немодифицируемую мапа с текущими значениями среды (environment)
+Это системно зависимые пары ключ-значение передающиеся от родительского процесса дочернему
+Если системного environment нет, то мапа будет пустой
+
 ###### String getenv(String name)
+Возвращает специальное значение environment по имени
+
 ###### Logger getLogger(String name)
+Возвращает логгер
+В джаве была добавлена своя система логгирования, которая в принципе работает с популярными библиотеками
+
 ###### Logger getLogger(String name, ResourceBundle bundle)
+Локализованный логгер, логгер должен использовать bundle для локализованных сообщений
+ResourceBundle - класс для хранения локализованных сообщений
+
 ###### Properties getProperties()
 ###### String getProperty(String key)
 ###### String getProperty(String key, String def)
