@@ -59,3 +59,15 @@
 ---
 
 **java.util.WeakHashMap**
+
+---
+
+**java.util.Map**
+
+`static` методы самого интерфейса:
+
+* of()
+* of(...)
+* ofEntries(Entry<K, V>)
+* copyOf(Map<K, V>)
+
