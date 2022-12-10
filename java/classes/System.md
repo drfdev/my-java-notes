@@ -57,11 +57,79 @@ status - статус завершения
 ResourceBundle - класс для хранения локализованных сообщений
 
 ###### Properties getProperties()
+Возвращает системные настройки, может кинуть security exception
+Для изменения системных настроек, не стоит менять сам Properties, лучше использовать методы:
+`getProperties()`, `setProperties(Properties)`, `setProperty(String, String)` или `clearProperty(String)`
+Изменение стандартных проперти после инициализации может не иметь эффекта
+
+Список основных проперти:
+
+| Имя                           | Описание                                                            |
+|-------------------------------|---------------------------------------------------------------------|
+| java.version                  | Версия джава машины, см так же Runtime.Version                      |
+| java.version.date             | Дата jre, в формате ISO-8601 YYYY-MM-DD                             |
+| java.vendor                   | Поставщик jre                                                       |
+| java.vendor.url               | URL поставщика                                                      |
+| java.vendor.version           | Версия поставщика (опционально)                                     |
+| java.home                     | Папка куда джава установлена                                        |
+| java.vm.specification.version | Версия спецификации jvm                                             |
+| java.vm.specification.vendor  | Поставщик спецификации jvm                                          |
+| java.vm.specification.name    | Наименование спецификации jvm                                       |
+| java.vm.version               | Реализация jvm, см так же Runtime.Version                           |
+| java.vm.vendor                | Поставщик реализации jvm                                            |
+| java.vm.name                  | Поставщик реализации jvm                                            |
+| java.specification.version    | Версия спецификации jre                                             |
+| java.specification.vendor     | Поставщик спецификации jre                                          |
+| java.specification.name       | Наименование спецификаии jre                                        |
+| java.class.version            | Java class format version number                                    |
+| java.class.path               | класспасс, см ClassLoader.getSystemClassLoader()                    |
+| java.library.path             | список путей где искать библиотеки для загрузки                     |
+| java.io.tmpdir                | папка временных файлов по умолчанию                                 |
+| java.compiler                 | Имя jit компилятора (используемого)                                 |
+| os.name                       | наименование операционной системы                                   |
+| os.arch                       | Архитектура операционной системы                                    |
+| os.version                    | Версия операционой системы                                          |
+| file.separator                | Разделителья для файлов ("/" on UNIX)                               |
+| path.separator                | Разделитель path (":" on UNIX)                                      |
+| line.separator                | Разделитель строк ("\n" on UNIX)                                    |
+| user.name                     | Имя аккаунта пользователя                                           |
+| user.home                     | Домашняя папка пользователя                                         |
+| user.dir                      | Текущая рабочая директория                                          |
+| native.encoding               | Кодировка полученная из настрок системы и/иил настроек пользователя |
+
+Кроме стандартных могут еще присутствовать вот такие доп значения:
+
+| Имя                     | Описание                                      |
+|-------------------------|-----------------------------------------------|
+| jdk.module.path         | Путь к модулу приложения                      |
+| jdk.module.upgrade.path | Путь модуля обновления                        |
+| jdk.module.main         | Наименование основного/инициализующего модуля |
+| jdk.module.main.class   | Имя главного класс инициализурующего модуля   |
+
+
 ###### String getProperty(String key)
+Возвращает значение проперти по имени или null
+Может кинуть `SecurityException`
+
 ###### String getProperty(String key, String def)
+Возвращает значение проперти по имени или def
+Может кинуть `SecurityException`
+
 ###### void setProperties(Properties props)
+Переписывает стандартные проперти, теми что заданы в аргументе функции
+Может кинуть `SecurityException`
+Переписывание стандартных значений может привести к непредсказуемым результатам
+
 ###### String setProperty(String key, String value)
+Переписывает значение проперти по ключу, возвращает предыдущее значение
+Может кинуть `SecurityException`
+Переписывание стандартных значений может привести к непредсказуемым результатам
+
 ###### String clearProperty(String key)
+Удаляет проперти по ключу, возвращает предыдущее значение
+Может кинуть `SecurityException`
+Переписывание стандартных значений может привести к непредсказуемым результатам
+
 ###### SecurityManager getSecurityManager()
 ###### void setSecurityManager(SecurityManager sm)
 ###### int identityHashCode(Object x)
