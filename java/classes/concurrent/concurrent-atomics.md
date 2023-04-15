@@ -109,9 +109,61 @@ CAS атомарно записывает значение B в M, если зн
 
 **AtomicInteger**
 
+Значение int, изменяются атомарно
+
+Методы:
+* get():
+  Получить значение (как volatile)
+  аналогичные метод: getPlain(), getOpaque(), getAcquire() 
+* set(int):
+  задать значение (как volatile)
+  аналогичные метод: setPlain(int), setOpaque(int), setRelease(int)
+* lazySet(int):
+  задать значение как release
+* getAndSet(int):
+  атомарно задает новое значение, и возвращает старое
+* compareAndSet(expectedValue, newValue):
+  атомарно обновляет значение на новое newValue, если оно равно expectedValue
+* weakCompareAndSetPlain(expectedValue, newValue):
+  работает аналогично compareAndSet, но может упасть на memory contention (как plain)
+  аналогичные методы: weakCompareAndSetVolatile(int, int), weakCompareAndSetAcquire(int, int), weakCompareAndSetRelease(int, int)
+* getAndIncrement():
+  делает атомарный инкремент текущего значения, и возвращает старое
+  эквивалент getAndAdd(1)
+* getAndDecrement():
+  делает атомарный декремент текущего значения, и возвращает старое
+  эквивалент getAndAdd(-1)
+* getAndAdd(int):
+  атомарно добавляет дельту к текущему значению, и возвращает предыдущее
+* incrementAndGet():
+  атомарный инкремент и возвращает измененное значение
+  эквивалент addAndGet(1)
+* decrementAndGet():
+  атомарный декремент и возвращает измененное значение
+  эквивалент addAndGet(-1)
+* addAndGet(int):
+  атомарно добавляет заданное значение к текущему, и возвращает измененное значение
+* getAndUpdate(IntUnaryOperator):
+  атомарно обновляет значение используя заданную функцию, возвращает предыдущее значение
+* updateAndGet(IntUnaryOperator):
+  атомарно обновляет значение используя заданную функцию и возвращает измененное значение
+* getAndAccumulate(int, IntBinaryOperator):
+  аналогично getAndUpdate(), но с бинарным оператором, где первый параметр - это второй параметр функции
+* accumulateAndGet(int, IntBinaryOperator):
+  аналогично updateAndGet(), но с бинарным оператором, где первый параметр - это второй параметр функции
+* intValue():
+  возвращает текущее значение (тип int, как volatile)
+  похожие методы: longValue(), floatValue(), doubleValue()
+* compareAndExchange(expectedValue, newValue):
+  атомарно устанавливает значение newValue, если оно равно expectedValue
+  возвращает проверяемое значение, если успех - то вернется значение равное expectedValue
+  аналогичные методы: compareAndExchangeAcquire(int, int), compareAndExchangeRelease(int, int)
+
 ---
 
 **AtomicLong**
+
+Аналогичный _AtomicInteger_ класс, методы практически совпадают
 
 ---
 
