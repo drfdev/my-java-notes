@@ -127,49 +127,105 @@ Null-ключ запрещен
 
 **java.util.LinkedHashMap**
 
+~~TODO~~
+
 ---
 
 **java.util.Hashtable**
+
+~~TODO~~
 
 ---
 
 **java.util.concurrent.ConcurrentMap** (interface)
 
+Макркерный интерфейс, обозначающий мапы с гарантированной потокобезопасностью и атомарностью  
+Переопределяет некоторые дефолтные методы из `Map`
+
+
 ---
 
 **java.util.SortedMap** (interface)
+
+Интерфейс означает что данная мапа имеет сортировку по ключам  
+Сортировка происходит или в натуральном порядке, или через данный компаратор
+
+Дополнительные методы:
+* Comparator<? super K> comparator():
+  Возвращает компаратор этой мапы или null, если сортировка в натуральном порядке
+* SortedMap<K,V> subMap(K fromKey, K toKey):
+  Возвращает часть мапы (view), которая задана в промежутке ключей fromKey и toKey
+* SortedMap<K,V> headMap(K toKey):
+  Возвращает часть мапы (view), где ключи строго меньше чем заданный ключ
+* SortedMap<K,V> tailMap(K fromKey):
+  Возвращает часть мапы (view), где ключи больше или равны чем заданный ключ
+* K firstKey():
+  Возвращает первый (наименьший) ключ
+* K lastKey():
+  Возвращает последний (наибольший) ключ
+
+
+---
+
+**java.util.NavigableMap** (interface)
+
+~~TODO~~
 
 ---
 
 **java.util.concurrent.ConcurrentHashMap**
 
+~~TODO~~
+
 ---
 
 **java.util.concurrent.ConcurrentSkipListMap**
+
+~~TODO~~
 
 ---
 
 **java.util.SynchronizedMap** (in Collections)
 
+Декоратор для мапы, у которого все методы синхронизованы (по некоему mutex)  
+Переменная mutex может быть передан в один из конструкторов (конструктор закрытый, поэтому его просто так не вызвать)
+
+
 ---
 
 **java.util.EmptyMap** (in Collections)
+
+Пустая мапа. Есть одна переменная, которая возвращается через метод `Collections.emptyMap()`
+
 
 ---
 
 **java.util.SingletonMap** (in Collections)
 
+Декоратор для одной пары ключ-значение
+
+
 ---
 
 **java.util.IdentityHashMap**
+
+~~TODO~~
 
 ---
 
 **java.util.CheckedMap** (in Collections)
 
+Мапы с проверкой типов объектов.  
+Если пытаться вставить в мапу ключ и значение с неверными типами будет брошен ClassCastException
+
+Есть два подкласса `CheckedNavigableMap` и `CheckedSortedMap` (связанный с соответственными интерфейсами)
+
+
 ---
 
 **java.util.WeakHashMap**
+
+~~TODO~~
 
 ---
 
