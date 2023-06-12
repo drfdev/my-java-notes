@@ -8,7 +8,8 @@
 - bytecode - заметки по байткоду
 - spring - обзор спринга
 - docker - немного про докер
-- kubernetes - немного про kubernetes
+- microservices - все связанное с микросервисами
+- microservices/kubernetes - немного про kubernetes
 - protocols - краткие описания протоколов которые могут понадобиться
 - concept - концепции программирования
 - db - базы данных
