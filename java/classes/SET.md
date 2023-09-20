@@ -270,3 +270,9 @@ public boolean isEmpty() {
   Если входящее множество класса `ImmutableCollections.AbstractImmutableSet`, то копирования не происходит
   Для остальных случаев возвращается `Set.of(new HashSet<>(coll).toArray())`
 
+
+---
+
+**java.util.SequencedSet**
+
+~~TODO~~

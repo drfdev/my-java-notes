@@ -468,3 +468,11 @@ public static <T> List<T> nCopies(int n, T o)
 
 package-private класс контейнер для немодифицируемых коллекций
 Не является частью публичного АПИ, поэтому дальше можно не смотреть
+
+
+---
+
+**java.util.SequencedCollection**
+
+~~TODO~~
+
