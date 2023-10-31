@@ -72,10 +72,35 @@ switch (box) {
 
 ---
 
+Дополнительные примеры использования:
+```java
+... instanceof Point(int x, _)
+```
+
+```java
+case Point(int x, _)
+```
+
+```java
+int _ = q.remove();
+```
+
+```java
+} catch (NumberFormatException _) {
+```
+```java
+(int x,int _)->x+x
+```
+
+
+---
 
 ## Безымянные классы (Unnamed Classes and Instance Main Methods) (java 21+)
 
-~~TODO~~
+Теперь в режиме preview можно запускать программы с методами `main()`,
+которые не являются `public static` и у которых нет параметра `String[] args`.  
+В таком случае JVM сама создаст экземпляр класса 
+(у него должен быть не-private конструктор без параметров) и вызовет у него метод `main()`.  
 
 ```java
 class HelloWorld {
@@ -85,6 +110,45 @@ class HelloWorld {
 }
 ```
 
+Протокол запуска будет выбирать метод `main()` согласно следующему приоритету:
+
+1. `static void main(String[] args)`
+2. `static void main()`
+3. `void main(String[] args)`
+4. `void main()`
+
+Кроме того, можно писать программы и без объявления класса вовсе:
+```java
+String greeting = "Hello, World!";
+
+void main() {
+    System.out.println(greeting);
+}
+```
+
+В таком случае будет создан неявный безымянный класс (не путать с анонимным классом),
+которому будут принадлежать метод `main()` и другие верхнеуровневые объявления в файле:
+```java
+// class <some name> { ← неявно
+String greeting = "Hello, World!";
+
+void main() {
+    System.out.println(greeting);
+}
+// }
+```
+
+Безымянный класс является синтетическим и `final`. Его simple name является пустой строкой:
+```java
+void main() {
+    System.out.println(getClass().isUnnamed()); // true
+    System.out.println(getClass().isSynthetic()); // true
+    System.out.println(getClass().getSimpleName()); // ""
+    System.out.println(getClass().getCanonicalName()); // null
+}
+```
+
+При этом имя класса совпадает с именем файла, но такое поведение не гарантируется.
 
 
 ---
